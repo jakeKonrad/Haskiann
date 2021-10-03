@@ -1,0 +1,36 @@
+cabal-version:      3.0
+name:               haskiann
+version:            0.1.0
+synopsis:           An initial algebra approach to neural networks.
+description:        See README
+-- license:         
+author:             Jacob Griffith Konrad
+maintainer:         jakegkonrad@gmail.com
+copyright:          (c) 2021 Jacob Griffith Konrad 
+category:           Machine Learning
+stability:          experimental
+extra-source-files: CHANGELOG.md
+                  , README.md
+
+library
+    exposed-modules: Haskiann.Core
+
+    other-modules: Internal.Prelude
+
+    default-extensions: GADTs 
+                      , TypeFamilies 
+                      , TypeOperators 
+                      , DataKinds 
+                      , PolyKinds
+                      , TypeApplications
+                      , NoImplicitPrelude
+                      , NoStarIsType
+
+    ghc-options: -Wall 
+
+    build-depends: base ^>=4.14.3.0
+                 , singletons ^>=3.0
+
+    hs-source-dirs: src
+
+    default-language: Haskell2010
