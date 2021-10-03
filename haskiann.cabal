@@ -3,7 +3,8 @@ name:               haskiann
 version:            0.1.0
 synopsis:           An initial algebra approach to neural networks.
 description:        See README
--- license:         
+license:            AGPL-3.0-only
+license-file:       LICENSE
 author:             Jacob Griffith Konrad
 maintainer:         jakegkonrad@gmail.com
 copyright:          (c) 2021 Jacob Griffith Konrad 
