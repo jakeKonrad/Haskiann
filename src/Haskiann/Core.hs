@@ -22,6 +22,8 @@ data SVec :: forall (a :: Type) (n :: Nat). Vec a n -> Type where
   SNil :: SVec 'Nil
   SCons :: forall (a :: Type) (n :: Nat) (as :: Vec Type n). a -> SVec as -> SVec ('Cons a as)
 
+-- Extended version of the graph datatype described in "An Initial Algebra Approach
+-- to Directed Acyclic Graphs" by Jeremy Gibbons.
 data Graph :: forall (m :: Nat) (n :: Nat). Vec Type m -> Vec Type n -> Type where
   Vert :: forall (m :: Nat) (n :: Nat) (ms :: Vec Type m) (ns :: Vec Type n).
        SVec ms ->
