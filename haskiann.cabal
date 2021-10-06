@@ -16,8 +16,6 @@ extra-source-files: CHANGELOG.md
 library
     exposed-modules: Haskiann.Core
 
-    other-modules: Internal.Prelude
-
     default-extensions: GADTs 
                       , TypeFamilies 
                       , TypeOperators 
@@ -26,11 +24,11 @@ library
                       , TypeApplications
                       , NoImplicitPrelude
                       , NoStarIsType
+                      , RankNTypes
 
-    ghc-options: -Wall 
+    ghc-options: -Wall -Wunticked-promoted-constructors
 
     build-depends: base ^>=4.14.3.0
-                 , singletons ^>=3.0
 
     hs-source-dirs: src
 
