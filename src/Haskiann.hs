@@ -1,4 +1,4 @@
-module Haskiann.Core where
+module Haskiann where
 
 import Data.Kind
 
