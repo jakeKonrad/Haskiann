@@ -11,10 +11,8 @@ type family (++) xs ys where
 
 data TensorShape :: [Nat] -> Type where
   Z :: TensorShape '[]
-  (:.) :: !(TensorShape shape) -> !(proxy n) -> TensorShape (shape ++ (n ': '[]))
+  (:.) :: !(TensorShape shape) -> !(proxy n) -> TensorShape (shape ++ '[n])
    
 data TensorDesc :: k -> [Nat] -> Type where
-  TensorDesc :: { dtype :: !(proxy dtype)
-                , shape :: !(TensorShape shape) 
-                } -> TensorDesc dtype shape 
+  TensorDesc :: !(proxy dtype) -> !(TensorShape shape) -> TensorDesc dtype shape 
 

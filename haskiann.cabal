@@ -14,7 +14,10 @@ extra-source-files: CHANGELOG.md
                   , README.md
 
 library
-    exposed-modules: Haskiann
+    exposed-modules: Haskiann.Data.Graph
+                   , Haskiann.Data.HVect
+                   , Haskiann.Data.Nat
+                   , Haskiann.Data.TensorDesc
 
     default-extensions: GADTs 
                       , TypeOperators 
