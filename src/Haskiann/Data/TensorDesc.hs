@@ -1,4 +1,6 @@
 module Haskiann.Data.TensorDesc ( TensorShape(..)
+                                , Fixed
+                                , Dynamic
                                 , TensorDesc(..)
                                 ) where
 
@@ -10,9 +12,14 @@ type family (++) xs ys where
   (x ': xs) ++ ys = x ': (xs ++ ys)
 
 data TensorShape :: [Nat] -> Type where
-  Z :: TensorShape '[]
-  (:.) :: !(TensorShape shape) -> !(proxy n) -> TensorShape (shape ++ '[n])
+  Scalar :: TensorShape '[]
+  (:&) :: !(TensorShape shape) -> !(proxy n) -> TensorShape (shape ++ '[n])
    
-data TensorDesc :: k -> [Nat] -> Type where
-  TensorDesc :: !(proxy dtype) -> !(TensorShape shape) -> TensorDesc dtype shape 
+data Fixed :: k -> [Nat] -> Type
+
+data Dynamic :: Type
+
+data TensorDesc a where
+  Fixed :: !(proxy dtype) -> !(TensorShape shape) -> TensorDesc (Fixed dtype shape)
+  Dynamic :: dtype -> [Natural] -> TensorDesc Dynamic
 

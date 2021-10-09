@@ -12,7 +12,7 @@ type family (++) xs ys where
 
 type family GraphConstraint xs :: Constraint where
   GraphConstraint '[] = ()
-  GraphConstraint (TensorDesc _ _ ': xs) = GraphConstraint xs
+  GraphConstraint (TensorDesc _ ': xs) = GraphConstraint xs
   GraphConstraint (t ': _) = TypeError ('Text "Expected a TensorDesc." ':$$: 
                                         'Text "Got a " ':<>: 'ShowType t ':<>: 'Text " instead.")
 
